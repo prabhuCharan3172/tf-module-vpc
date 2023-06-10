@@ -8,3 +8,6 @@ resource "aws_subnet" "main" {
   }
   availability_zone = var.AZ[count.index]
 }
+output "out"{
+  value=aws_subnet.main
+}
