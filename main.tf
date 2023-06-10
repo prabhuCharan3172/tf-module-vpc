@@ -30,9 +30,10 @@ resource "aws_eip" "ngw" {
 resource "aws_nat_gateway" "example" {
   allocation_id = aws_eip.ngw.id
   subnet_id     = module.subnets["public"].out[0].id
-  tags = {
+  tags          = {
     Name = "${var.env}-ngw"
   }
+}
 resource "aws_route_table" "route_table" {
   for_each = var.subnets
   vpc_id = aws_vpc.main.id
