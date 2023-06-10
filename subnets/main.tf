@@ -4,7 +4,7 @@ resource "aws_subnet" "main" {
   cidr_block = element(var.subnets, count.index)
 
   tags = {
-    Name = "Main"
+    Name = "${var.name}-subnet"
   }
   availability_zone_id = var.AZ[count.index]
 }
